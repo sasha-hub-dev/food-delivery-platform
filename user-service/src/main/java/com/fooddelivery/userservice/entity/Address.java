@@ -19,6 +19,7 @@ public class Address {
     private String zipCode;
     private String country;
 
+    // МНОГИЕ-К-ОДНОМУ с пользователем
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

@@ -1,8 +1,9 @@
 package com.fooddelivery.userservice.controller;
 
-import com.fooddelivery.userservice.dto.LoginRequest;
-import com.fooddelivery.userservice.dto.RegisterRequest;
-import com.fooddelivery.userservice.dto.UserResponse;
+import com.fooddelivery.userservice.dto.request.LoginRequest;
+import com.fooddelivery.userservice.dto.request.RegisterRequest;
+import com.fooddelivery.userservice.dto.response.LoginResponse;
+import com.fooddelivery.userservice.dto.response.RegisterResponse;
 import com.fooddelivery.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +17,14 @@ public class AuthController {
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<UserResponse> register(@RequestBody RegisterRequest request) {
-        UserResponse response = userService.register(request);
+    public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest request) {
+        RegisterResponse response = userService.register(request);
         return ResponseEntity.ok(response);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserResponse> login(@RequestBody LoginRequest request) {
-        UserResponse response = userService.login(request);
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+        LoginResponse response = userService.login(request);
         return ResponseEntity.ok(response);
     }
 }

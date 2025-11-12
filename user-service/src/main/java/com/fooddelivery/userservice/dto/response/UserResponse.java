@@ -1,4 +1,4 @@
-package com.fooddelivery.userservice.dto;
+package com.fooddelivery.userservice.dto.response;
 
 public class UserResponse {
     private Long id;
