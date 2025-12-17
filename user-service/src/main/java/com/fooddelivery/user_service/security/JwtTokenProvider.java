@@ -2,7 +2,7 @@ package com.fooddelivery.user_service.security;
 
 import com.fooddelivery.user_service.model.User;
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.io.Decoders;
+import java.nio.charset.StandardCharsets;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import org.slf4j.Logger;
@@ -27,7 +27,7 @@ public class JwtTokenProvider {
     private int jwtExpirationInMs;
 
     private Key key() {
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+        return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
     public String generateToken(Authentication authentication) {

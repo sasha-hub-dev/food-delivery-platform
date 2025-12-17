@@ -50,7 +50,7 @@ public class AuthService {
 
 
         Role userRole = roleRepository.findByName("USER")
-                .orElseThrow(() -> new RuntimeException("Ошибка: Роль USER не найдена. (Проверьте DataInitializer)"));
+                .orElseThrow(() -> new RuntimeException("Ошибка: Роль USER не найдена."));
         user.getRoles().add(userRole);
 
         return userRepository.save(user);
